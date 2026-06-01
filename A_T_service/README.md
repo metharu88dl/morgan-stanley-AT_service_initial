@@ -69,14 +69,14 @@ docker compose up -d
 ### Step 2: Start the Account Service
 Open a terminal in the `account-service/` directory and run:
 ```cmd
-mvnw.cmd spring-boot:run
+./mvnw.cmd spring-boot:run
 ```
 *The service will start on **http://localhost:8081**. H2 Console is available at **http://localhost:8081/h2-console** (JDBC URL: `jdbc:h2:mem:accountdb`, User: `sa`, Password: `password`).*
 
 ### Step 3: Start the Trade Service
 Open a second terminal in the `trade-service/` directory and run:
 ```cmd
-mvnw.cmd spring-boot:run
+./mvnw.cmd spring-boot:run
 ```
 *The service will start on **http://localhost:8082** and begin listening to the `trade-topic` on your local Kafka broker.*
 
@@ -164,6 +164,7 @@ Invoke-RestMethod -Uri http://localhost:8082/trades/publish -Method Post -Conten
 }
 ```
 
+.
 *If you publish malformed or invalid XML, the REST API intercepts it and returns a clean `400 Bad Request` JSON:*
 ```json
 {
